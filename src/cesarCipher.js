@@ -18,7 +18,9 @@ export function cesarCipher(someString, shiftFactor) {
     let finalResult = "";
     for (let i = 0; i < result.length; i++) {
       if (capitalPos.includes(i)) {
-        finalResult = finalResult + result[i].toUpperCase();
+        if (alphabet.includes(result[i])) {
+          finalResult = finalResult + result[i].toUpperCase();
+        }
       } else finalResult = finalResult + result[i];
     }
     return finalResult;
@@ -31,9 +33,9 @@ function getStartPos(letter, alphabet) {
   return alphabet.indexOf(letter);
 }
 function checkCapPos(someString) {
-  for (const letter of someString) {
-    if (letter === letter.toUpperCase()) {
-      capitalPos.push(someString.indexOf(letter));
+  for (let i = 0; i < someString.length; i++) {
+    if (someString[i] === someString[i].toUpperCase()) {
+      capitalPos.push(someString[i]);
     }
   }
 }
