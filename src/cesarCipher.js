@@ -5,7 +5,7 @@ export function cesarCipher(someString, shiftFactor) {
   let result = "";
 
   checkCapPos(someString);
-  const tempString = processString(someString);
+  const tempString = someString.toLowerCase();
 
   for (const letter of tempString) {
     if (alphabet.includes(letter)) {
@@ -15,13 +15,13 @@ export function cesarCipher(someString, shiftFactor) {
     } else result = result + letter;
   }
   if (capitalPos.length > 0) {
-    result.map((letter) => {
+    for (let i = 0; i < result.length; i++) {
       capitalPos.forEach((index) => {
-        if (result.indexOf(letter) === index) {
-          result[result.indexOf(letter)] = letter.toUpperCase();
+        if (i === index) {
+          result[i] = result[i].toUpperCase();
         }
       });
-    });
+    }
   }
 
   return result;
@@ -52,29 +52,3 @@ function getNewPos(startPos, shiftFactor) {
     shiftFactor = newPos % 26;
   }
 }
-function processString(someString) {
-  let tempString = "";
-  someString = someString.toLowerCase();
-  for (let i = 0; i < someString.length; i++) {
-    if (alphabet.includes(someString[i])) {
-      tempString = tempString + someString[i];
-    } else {
-      punctPos.push({ pos: i, value: someString[i] });
-    }
-  }
-  return tempString;
-}
-
-// function reconString(someString) {
-//   let reconString = "";
-//   for (let i = 0; i < someString.length; i++) {
-
-//   }
-// }
-
-// punctPos.forEach((punctObj) => {
-//   if (punctObj.pos === i) {
-//     reconString = reconString + punctObj.value;
-//   }
-//   reconString = reconString + someString[i];
-// });
