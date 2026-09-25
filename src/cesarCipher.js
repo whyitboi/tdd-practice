@@ -15,11 +15,12 @@ export function cesarCipher(someString, shiftFactor) {
     } else result = result + letter;
   }
   if (capitalPos.length > 0) {
+    let finalResult = "";
     for (let i = 0; i < result.length; i++) {
       capitalPos.forEach((index) => {
         if (i === index) {
-          result[i] = result[i].toUpperCase();
-        }
+          finalResult = finalResult + result[i].toUpperCase();
+        } else finalResult = finalResult + result[i];
       });
     }
   }
@@ -32,7 +33,7 @@ function getStartPos(letterPos, alphabet) {
 }
 function checkCapPos(someString) {
   for (const letter of someString) {
-    if (letter.toUpperCase()) {
+    if (letter === letter.toUpperCase()) {
       capitalPos.push(someString.indexOf(letter));
     }
   }
