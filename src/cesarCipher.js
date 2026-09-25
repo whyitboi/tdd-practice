@@ -17,12 +17,11 @@ export function cesarCipher(someString, shiftFactor) {
   if (capitalPos.length > 0) {
     let finalResult = "";
     for (let i = 0; i < result.length; i++) {
-      capitalPos.forEach((index) => {
-        if (i === index) {
-          finalResult = finalResult + result[i].toUpperCase();
-        } else finalResult = finalResult + result[i];
-      });
+      if (capitalPos.includes(i)) {
+        finalResult = finalResult + result[i].toUpperCase();
+      } else finalResult = finalResult + result[i];
     }
+    return finalResult;
   }
 
   return result;
