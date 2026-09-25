@@ -3,6 +3,7 @@ import { sum } from "./sum";
 import { capitalize } from "./capitalize";
 import { reverseString } from "./reverseString";
 import { Calculator } from "./calculator";
+import { cesarCipher } from "./cesarCipher";
 
 describe("sum module", () => {
   test("adds 1 + 2 to equal 3", () => {
