@@ -28,8 +28,8 @@ export function cesarCipher(someString, shiftFactor) {
   return result;
 }
 
-function getStartPos(letterPos, alphabet) {
-  return alphabet.indexOf(letterPos);
+function getStartPos(letter, alphabet) {
+  return alphabet.indexOf(letter);
 }
 function checkCapPos(someString) {
   for (const letter of someString) {
@@ -40,9 +40,12 @@ function checkCapPos(someString) {
 }
 
 function getNewPos(startPos, shiftFactor) {
-  checkAndWrap(startPos + shiftFactor);
-  return alphabet.indexOf(alphabet[startPos + shiftFactor]);
-
+  if (startPos + shiftFactor < 25 && startPos + shiftFactor > 0) {
+    return alphabet.indexOf(alphabet[startPos + shiftFactor]);
+  } else {
+    checkAndWrap(startPos + shiftFactor);
+    return alphabet.indexOf(alphabet[startPos + shiftFactor]);
+  }
   function checkAndWrap(newPos) {
     if (newPos > 25) {
       startPos = 0;
