@@ -8,9 +8,11 @@ export function cesarCipher(someString, shiftFactor) {
   const tempString = processString(someString);
 
   for (const letter of tempString) {
-    let startPos = getStartPos(letter, alphabet);
-    let newPos = getNewPos(startPos, shiftFactor);
-    result = result + alphabet[newPos];
+    if (alphabet.includes(letter)) {
+      let startPos = getStartPos(letter, alphabet);
+      let newPos = getNewPos(startPos, shiftFactor);
+      result = result + alphabet[newPos];
+    } else result = result + letter;
   }
   if (capitalPos.length > 0) {
     result.map((letter) => {
@@ -63,14 +65,16 @@ function processString(someString) {
   return tempString;
 }
 
-function reconString(someString) {
-  let reconString = "";
-  for (let i = 0; i > someString.length; i++) {
-    punctPos.forEach((punctObj) => {
-      if (punctObj.pos === i) {
-        reconString = reconString + punctObj.value;
-      }
-      reconString = reconString + someString[i];
-    });
-  }
-}
+// function reconString(someString) {
+//   let reconString = "";
+//   for (let i = 0; i < someString.length; i++) {
+
+//   }
+// }
+
+// punctPos.forEach((punctObj) => {
+//   if (punctObj.pos === i) {
+//     reconString = reconString + punctObj.value;
+//   }
+//   reconString = reconString + someString[i];
+// });
