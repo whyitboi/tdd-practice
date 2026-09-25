@@ -1,7 +1,7 @@
 export function cesarCipher(someString, shiftFactor) {
   const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
   let result;
-
+  const startPos = getStartPosition(someString, alphabet);
   return result;
 }
 
