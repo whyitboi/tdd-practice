@@ -17,10 +17,9 @@ function getNewPos(startPos, shiftFactor) {
   function checkAndWrap(newPos) {
     if (newPos > 25) {
       startPos = 0;
-      shiftFactor = newPos % 26;
     } else if (newPos < 0) {
       startPos = 25;
-      shiftFactor = newPos % 26;
     }
+    shiftFactor = newPos % 26;
   }
 }
