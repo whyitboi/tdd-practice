@@ -5,6 +5,7 @@ export function cesarCipher(someString, shiftFactor) {
   const punctPos = [];
 
   checkCapPos(someString);
+  someString = processString(someString);
 
   for (const letter of someString) {
     let startPos = getStartPos(someString, alphabet);
