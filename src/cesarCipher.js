@@ -52,11 +52,11 @@ function getNewPos(startPos, shiftFactor) {
 function processString(someString) {
   let tempString = "";
   someString = someString.toLowerCase();
-  for (const character of someString) {
-    if (alphabet.include(character)) {
-      tempString = tempString + character;
+  for (let i = 0; i < someString.length; i++) {
+    if (alphabet.includes(someString[i])) {
+      tempString = tempString + someString[i];
     } else {
-      punctPos.push[someString.indexOf(character)];
+      punctPos.push({ pos: i, value: someString[i] });
     }
   }
   return tempString;
