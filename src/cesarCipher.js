@@ -8,7 +8,7 @@ export function cesarCipher(someString, shiftFactor) {
   someString = processString(someString);
 
   for (const letter of someString) {
-    let startPos = getStartPos(someString, alphabet);
+    let startPos = getStartPos(someString[0], alphabet);
     let newPos = getNewPos(startPos, shiftFactor);
     result = result + alphabet[newPos];
   }
@@ -25,12 +25,12 @@ export function cesarCipher(someString, shiftFactor) {
   return result;
 }
 
-function getStartPos(someString, alphabet) {
-  return alphabet.indexOf(someString[0]);
+function getStartPos(letterPos, alphabet) {
+  return alphabet.indexOf(letterPos);
 }
 function checkCapPos(someString) {
   for (const letter of someString) {
-    if (letter.toUpperCas()) {
+    if (letter.toUpperCase()) {
       capitalPos.push(someString.indexOf(letter));
     }
   }
