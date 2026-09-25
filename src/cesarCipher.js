@@ -34,8 +34,10 @@ function getStartPos(letter, alphabet) {
 }
 function checkCapPos(someString) {
   for (let i = 0; i < someString.length; i++) {
-    if (someString[i] === someString[i].toUpperCase()) {
-      capitalPos.push(someString[i]);
+    if (alphabet.includes(someString[i])) {
+      if (someString[i] === someString[i].toUpperCase()) {
+        capitalPos.push(i);
+      }
     }
   }
 }
