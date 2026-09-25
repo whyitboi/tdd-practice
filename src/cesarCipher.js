@@ -1,13 +1,13 @@
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
+const capitalPos = [];
+const punctPos = [];
 export function cesarCipher(someString, shiftFactor) {
   let result = "";
-  const capitalPos = [];
-  const punctPos = [];
 
   checkCapPos(someString);
-  someString = processString(someString);
+  const tempString = processString(someString);
 
-  for (const letter of someString) {
+  for (const letter of tempString) {
     let startPos = getStartPos(letter, alphabet);
     let newPos = getNewPos(startPos, shiftFactor);
     result = result + alphabet[newPos];
@@ -61,4 +61,16 @@ function processString(someString) {
     }
   }
   return tempString;
+}
+
+function reconString(someString) {
+  let reconString = "";
+  for (let i = 0; i > someString.length; i++) {
+    punctPos.forEach((punctObj) => {
+      if (punctObj.pos === i) {
+        reconString = reconString + punctObj.value;
+      }
+      reconString = reconString + someString[i];
+    });
+  }
 }
