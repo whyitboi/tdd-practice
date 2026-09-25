@@ -8,7 +8,7 @@ export function cesarCipher(someString, shiftFactor) {
   someString = processString(someString);
 
   for (const letter of someString) {
-    let startPos = getStartPos(someString[0], alphabet);
+    let startPos = getStartPos(letter, alphabet);
     let newPos = getNewPos(startPos, shiftFactor);
     result = result + alphabet[newPos];
   }
