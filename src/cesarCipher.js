@@ -59,5 +59,5 @@ function processString(someString) {
       punctPos.push[someString.indexOf(character)];
     }
   }
-  someString = tempString;
+  return tempString;
 }
