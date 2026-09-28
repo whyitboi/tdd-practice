@@ -38,6 +38,6 @@ describe("Cesar cipher module", () => {
     expect(cesarCipher("abc", 3)).toBe("def");
     expect(cesarCipher("xyz", 3)).toBe("abc");
     expect(cesarCipher("Hello", 3)).toBe("Khoor");
-    expect(cesarCipher("Hello, World!")).toBe("Khoor, Zruog!");
+    expect(cesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
   });
 });
