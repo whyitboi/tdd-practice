@@ -1,10 +1,10 @@
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
-const capitalPos = [];
-const punctPos = [];
+
+//const punctPos = [];
 export function cesarCipher(someString, shiftFactor) {
   let result = "";
 
-  checkCapPos(someString);
+  const capitalPos = checkCapPos(someString);
   const tempString = someString.toLowerCase();
 
   for (const letter of tempString) {
@@ -33,6 +33,7 @@ function getStartPos(letter, alphabet) {
   return alphabet.indexOf(letter);
 }
 function checkCapPos(someString) {
+  const capitalPos = [];
   for (let i = 0; i < someString.length; i++) {
     if (alphabet.includes(someString[i].toLowerCase())) {
       if (someString[i] === someString[i].toUpperCase()) {
@@ -40,6 +41,7 @@ function checkCapPos(someString) {
       }
     }
   }
+  return capitalPos;
 }
 
 function getNewPos(startPos, shiftFactor) {
