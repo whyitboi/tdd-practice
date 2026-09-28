@@ -45,7 +45,7 @@ function checkCapPos(someString) {
 }
 
 function getNewPos(startPos, shiftFactor) {
-  if (startPos + shiftFactor < 25 && startPos + shiftFactor > 0) {
+  if (startPos + shiftFactor <= 25 && startPos + shiftFactor >= 0) {
     return alphabet.indexOf(alphabet[startPos + shiftFactor]);
   } else {
     checkAndWrap(startPos + shiftFactor);
