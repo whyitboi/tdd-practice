@@ -7,7 +7,7 @@ export function analyzeArray(someArray) {
   });
 
   arrayObject.average = sum / length;
-  (arrayObject.min = Math).min(...someArray);
+  arrayObject.min = Math.min(...someArray);
   arrayObject.max = Math.max(...someArray);
   arrayObject.length = length;
 
