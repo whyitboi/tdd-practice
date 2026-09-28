@@ -1,6 +1,5 @@
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
 
-//const punctPos = [];
 export function cesarCipher(someString, shiftFactor) {
   let result = "";
 

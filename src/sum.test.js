@@ -4,6 +4,7 @@ import { capitalize } from "./capitalize";
 import { reverseString } from "./reverseString";
 import { Calculator } from "./calculator";
 import { cesarCipher } from "./cesarCipher";
+import { analyzeArray } from "./analyzeArray";
 
 describe("sum module", () => {
   test("adds 1 + 2 to equal 3", () => {
@@ -39,5 +40,16 @@ describe("Cesar cipher module", () => {
     expect(cesarCipher("xyz", 3)).toBe("abc");
     expect(cesarCipher("Hello", 3)).toBe("Khoor");
     expect(cesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
+  });
+});
+
+describe("Anayze Number Array module", () => {
+  test("analyzeArray function", () => {
+    expect(analyzeArray([1, 8, 3, 4, 2, 6])).toEqual({
+      average: 4,
+      min: 1,
+      max: 8,
+      length: 6,
+    });
   });
 });
